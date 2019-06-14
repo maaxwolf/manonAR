@@ -58,8 +58,8 @@ function initialize()
 	totalTime = 0;
 	
 	////////////////////////////////////////////////////////////
-	// setup arToolkitSource
-	////////////////////////////////////////////////////////////
+	// arToolkitSource
+	
 
 	arToolkitSource = new THREEx.ArToolkitSource({
 		sourceType : 'webcam',
@@ -85,10 +85,10 @@ function initialize()
 	});
 	
 	////////////////////////////////////////////////////////////
-	// setup arToolkitContext
-	////////////////////////////////////////////////////////////	
+	//  arToolkitContext
+		
 
-	// create atToolkitContext
+	// atToolkitContext
 	arToolkitContext = new THREEx.ArToolkitContext({
 		cameraParametersUrl: 'data/camera_para.dat',
 		detectionMode: 'mono'
@@ -101,9 +101,9 @@ function initialize()
 
 	////////////////////////////////////////////////////////////
 	// setup markerRoots
-	////////////////////////////////////////////////////////////
+	
 
-	// build markerControls
+	//  markerControls
 	kanjiMarker = new THREE.Group();
 	scene.add(kanjiMarker);
 	
@@ -112,8 +112,8 @@ function initialize()
 		patternUrl : "data/kanji.patt",
 	})
 
-	// interpolates from last position to create smoother transitions when moving.
-	// parameter lerp values near 0 are slow, near 1 are fast (instantaneous).
+	// smoothing para transiciones
+	// lerp si tiende a 0 es lento; y si es a 1 , muy rapido
 	let smoothedRoot = new THREE.Group();
 	scene.add(smoothedRoot);
 	smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
@@ -130,7 +130,7 @@ function initialize()
 	
 	let loader = new THREE.TextureLoader();
 	
-	// material for portal (for debugging)
+	// marcos portal
 	
 	let defaultMaterial = new THREE.MeshBasicMaterial({
 		map: loader.load("images/sphere-colored.png"), 
@@ -165,9 +165,9 @@ function initialize()
 	portalBorderMesh.layers.set(0);
 	smoothedRoot.add(portalBorderMesh);
 	
-	// the world beyond the portal
+	//portal
 	
-	// textures from http://www.humus.name/
+	
 	let skyMaterialArray = [
 		new THREE.MeshBasicMaterial( { map: loader.load("images/biblioteca/posx.jpg"), side: THREE.BackSide } ),
 		new THREE.MeshBasicMaterial( { map: loader.load("images/biblioteca/negx.jpg"), side: THREE.BackSide } ),
