@@ -180,7 +180,7 @@ function initialize()
 		new THREE.MeshBasicMaterial( { map: loader.load("images/biblioteca/negz.jpg"), side: THREE.BackSide } ),
 	];
 	let skyMesh = new THREE.Mesh(
-		new THREE.CubeGeometry(30,30,30),
+		new THREE.CubeGeometry(80,80,80),
 		skyMaterialArray );
 	skyMesh.layers.set(2);
 	smoothedRoot.add(skyMesh);
